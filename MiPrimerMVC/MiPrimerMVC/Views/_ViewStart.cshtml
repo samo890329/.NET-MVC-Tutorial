@@ -1,0 +1,17 @@
+﻿@*Layout de ejecucion por default*@
+   @* -Podemos especificar codigo HTML / cargar el layout por que querramis en Index, etc, de la pagina por default.*@
+   @* -Opcionalmente podemos establecer el layout en la parte superior de la pagina conjunto con el modelo*@
+
+    @*Ejemplo:
+        @{
+        ViewBag.Title = "Ver";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+        //Retornar una lista de alumnos y no la lista contenida por el ORM de Linq
+        //List<Model.DB_Context.Alumno> alumnos = ViewBag.Alumnos; --> aqui lo trae desde el contexto de Entity Framework
+        //List<Model.Alumno> alumnos = ViewBag.Alumnos; --> aqui alumnos es un modelo una clase generica solo se agrega la referencia
+    }*@    
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}

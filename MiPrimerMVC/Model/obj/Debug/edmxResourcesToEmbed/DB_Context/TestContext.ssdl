@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PERSONALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Adjunto">
+    <Key>
+      <PropertyRef Name="IdAdjunto" />
+    </Key>
+    <Property Name="IdAdjunto" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlumnoId" Type="bigint" Nullable="false" />
+    <Property Name="Archivo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="IdAlumno" />
+    </Key>
+    <Property Name="IdAlumno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sexo" Type="int" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AlumnoCurso">
+    <Key>
+      <PropertyRef Name="IdAlumnoCurso" />
+    </Key>
+    <Property Name="IdAlumnoCurso" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlumnoId" Type="bigint" Nullable="false" />
+    <Property Name="CursoId" Type="bigint" Nullable="false" />
+    <Property Name="Nota" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="CursoId" />
+    </Key>
+    <Property Name="CursoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_Adjunto_Alumno_1">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="Adjunto" Type="Self.Adjunto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="IdAlumno" />
+      </Principal>
+      <Dependent Role="Adjunto">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_AlumnoCurso_Alumno_1">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="AlumnoCurso" Type="Self.AlumnoCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="IdAlumno" />
+      </Principal>
+      <Dependent Role="AlumnoCurso">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_AlumnoCurso_Curso_1">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="AlumnoCurso" Type="Self.AlumnoCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="CursoId" />
+      </Principal>
+      <Dependent Role="AlumnoCurso">
+        <PropertyRef Name="CursoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PERSONALModelStoreContainer">
+    <EntitySet Name="Adjunto" EntityType="Self.Adjunto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlumnoCurso" EntityType="Self.AlumnoCurso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_Adjunto_Alumno_1" Association="Self.fk_Adjunto_Alumno_1">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Adjunto" EntitySet="Adjunto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_AlumnoCurso_Alumno_1" Association="Self.fk_AlumnoCurso_Alumno_1">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="AlumnoCurso" EntitySet="AlumnoCurso" />
+    </AssociationSet>
+    <AssociationSet Name="fk_AlumnoCurso_Curso_1" Association="Self.fk_AlumnoCurso_Curso_1">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="AlumnoCurso" EntitySet="AlumnoCurso" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

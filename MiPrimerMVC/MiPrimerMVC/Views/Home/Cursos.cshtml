@@ -1,0 +1,22 @@
+﻿@model Model.DB_Context.AlumnoCurso
+
+@using (Html.BeginForm("Guardar", "Home", FormMethod.Post, new { id = "frm-alumno" }))
+{
+    <div class="form-group">
+        <select class="form-control" name="Curso_id"></select>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Nota)
+        @Html.TextBoxFor(x => x.Nota, new { @class = "form-control", style = "max-width:100% !important;" })
+        @Html.ValidationMessageFor(x => x.Nota, null, new { @class = "label label-danger" })
+    </div>
+
+    <button type="button"
+            class="btn btn-success"
+            id="saveRoute"
+            data-confirm="¿Esta seguro que desea asignar este curso al alumno?"
+            onclick="javascript: SaveAlumno()">
+        Guardar
+    </button>
+
+}

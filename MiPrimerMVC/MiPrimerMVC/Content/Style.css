@@ -1,0 +1,11 @@
+﻿
+
+/* Styles for progress wait
+-----------------------------------------------------------*/
+.progress-wait{
+    position: absolute;
+    top: 50%;
+    left:15%;
+    width:70%;
+    height: 3%;
+}

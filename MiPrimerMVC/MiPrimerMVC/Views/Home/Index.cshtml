@@ -1,0 +1,69 @@
+﻿@model List<Model.DB_Context.Alumno>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="page-header">
+    <a id="btnCreate" class="btn btn-xs btn-default pull-right" href="~/home/crud">Nuevo alumno</a>
+    Alumnos
+</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width:30%;">Nombre</th>
+            <th style="width:20%;">Sexo</th>
+            <th style="width:30%;">Fecha de Nacimiento</th>
+            <th style="width:20%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <th>@(m.Nombre + " " + m.Apellido)</th>  @*Impresion "@()" -> Agrupacion / "@" -> Simbolo *@
+                    <th>@(m.Sexo == 1 ? "Hombre" : "Mujer")</th>
+                    <th>@(m.FechaNacimiento.ToShortDateString())</th>
+                    <th>
+                        <a id="btnView" class="btn btn-xs btn-default" href="~/home/ver/@m.IdAlumno">Visualizar</a>
+                        <a id="btnEdit" class="btn btn-xs btn-primary" href="~/home/crud/@m.IdAlumno">Editar</a>
+                        <a id="btnDelete" class="btn btn-xs btn-danger btnDelete" href="~/home/eliminar/@m.IdAlumno">Eliminar</a>
+                    </th>
+                </tr>
+            }
+    </tbody>
+
+    
+
+</table>
+
+<script>
+        //CRUD - Eliminar registro desde la funcion del boton
+        //$(".btnDelete").click(function (event) {
+        //    event.preventDefault();
+        //    swal({
+        //        title: "¿Deseas eliminar el registro?",
+        //        text: "¡No sera posible recuperar el regitro en un futuro!",
+        //        type: "warning",
+        //        showCancelButton: true,
+        //        confirmButtonColor: "#DD6B55",
+        //        confirmButtonText: "Si, eliminar"
+        //    },
+        //    function (isConfirm) {
+        //        if (isConfirm) {
+        //            alert();
+        //        }
+        //    });
+        //});
+</script>
+
+
+
+
+
+
+
+
+
+

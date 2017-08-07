@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PERSONALModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Adjunto">
+    <Key>
+      <PropertyRef Name="IdAdjunto" />
+    </Key>
+    <Property Name="IdAdjunto" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlumnoId" Type="Int64" Nullable="false" />
+    <Property Name="Archivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Alumno" Relationship="Self.fk_Adjunto_Alumno_1" FromRole="Adjunto" ToRole="Alumno" />
+  </EntityType>
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="IdAlumno" />
+    </Key>
+    <Property Name="IdAlumno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sexo" Type="Int32" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Adjunto" Relationship="Self.fk_Adjunto_Alumno_1" FromRole="Alumno" ToRole="Adjunto" />
+    <NavigationProperty Name="AlumnoCurso" Relationship="Self.fk_AlumnoCurso_Alumno_1" FromRole="Alumno" ToRole="AlumnoCurso" />
+  </EntityType>
+  <EntityType Name="AlumnoCurso">
+    <Key>
+      <PropertyRef Name="IdAlumnoCurso" />
+    </Key>
+    <Property Name="IdAlumnoCurso" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlumnoId" Type="Int64" Nullable="false" />
+    <Property Name="CursoId" Type="Int64" Nullable="false" />
+    <Property Name="Nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Alumno" Relationship="Self.fk_AlumnoCurso_Alumno_1" FromRole="AlumnoCurso" ToRole="Alumno" />
+    <NavigationProperty Name="Curso" Relationship="Self.fk_AlumnoCurso_Curso_1" FromRole="AlumnoCurso" ToRole="Curso" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="CursoId" />
+    </Key>
+    <Property Name="CursoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AlumnoCurso" Relationship="Self.fk_AlumnoCurso_Curso_1" FromRole="Curso" ToRole="AlumnoCurso" />
+  </EntityType>
+  <Association Name="fk_Adjunto_Alumno_1">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="Adjunto" Type="Self.Adjunto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="IdAlumno" />
+      </Principal>
+      <Dependent Role="Adjunto">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_AlumnoCurso_Alumno_1">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="AlumnoCurso" Type="Self.AlumnoCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="IdAlumno" />
+      </Principal>
+      <Dependent Role="AlumnoCurso">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_AlumnoCurso_Curso_1">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="AlumnoCurso" Type="Self.AlumnoCurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="CursoId" />
+      </Principal>
+      <Dependent Role="AlumnoCurso">
+        <PropertyRef Name="CursoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adjunto" EntityType="Self.Adjunto" />
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" />
+    <EntitySet Name="AlumnoCurso" EntityType="Self.AlumnoCurso" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" />
+    <AssociationSet Name="fk_Adjunto_Alumno_1" Association="Self.fk_Adjunto_Alumno_1">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Adjunto" EntitySet="Adjunto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_AlumnoCurso_Alumno_1" Association="Self.fk_AlumnoCurso_Alumno_1">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="AlumnoCurso" EntitySet="AlumnoCurso" />
+    </AssociationSet>
+    <AssociationSet Name="fk_AlumnoCurso_Curso_1" Association="Self.fk_AlumnoCurso_Curso_1">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="AlumnoCurso" EntitySet="AlumnoCurso" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

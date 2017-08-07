@@ -1,0 +1,20 @@
+C:\Users\Srodriguez\documents\visual studio 2015\Projects\MiPrimerMVC\Model\bin\Debug\Model.dll.config
+C:\Users\Srodriguez\documents\visual studio 2015\Projects\MiPrimerMVC\Model\bin\Debug\Model.dll
+C:\Users\Srodriguez\documents\visual studio 2015\Projects\MiPrimerMVC\Model\bin\Debug\Model.pdb
+C:\Users\Srodriguez\documents\visual studio 2015\Projects\MiPrimerMVC\Model\bin\Debug\EntityFramework.dll
+C:\Users\Srodriguez\documents\visual studio 2015\Projects\MiPrimerMVC\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Srodriguez\documents\visual studio 2015\Projects\MiPrimerMVC\Model\bin\Debug\EntityFramework.xml
+C:\Users\Srodriguez\documents\visual studio 2015\Projects\MiPrimerMVC\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Srodriguez\documents\visual studio 2015\Projects\MiPrimerMVC\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Srodriguez\documents\visual studio 2015\Projects\MiPrimerMVC\Model\obj\Debug\Model.dll
+C:\Users\Srodriguez\documents\visual studio 2015\Projects\MiPrimerMVC\Model\obj\Debug\Model.pdb
+C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\bin\Debug\Model.dll.config
+C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\bin\Debug\Model.dll
+C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\bin\Debug\Model.pdb
+C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\bin\Debug\EntityFramework.dll
+C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\bin\Debug\EntityFramework.xml
+C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\obj\Debug\Model.dll
+C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\obj\Debug\Model.pdb

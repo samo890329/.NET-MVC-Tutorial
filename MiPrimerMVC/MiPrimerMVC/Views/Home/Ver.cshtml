@@ -1,0 +1,71 @@
+﻿@*Se utiliza de esta forma el recuperar el parametro debido a que se retorna como parametro en el View Result*@
+@model Model.DB_Context.Alumno 
+
+@{
+    ViewBag.Title = "Ver";
+    Layout = "~/Views/Shared/_Layout.cshtml"; //Setteo de Layout
+
+    //Retornar una lista de alumnos y no la lista contenida por el ORM de Linq
+    //List<Model.DB_Context.Alumno> alumnos = ViewBag.Alumnos; --> aqui lo trae desde el contexto de Entity Framework
+    //List<Model.Alumno> alumnos = ViewBag.Alumnos; --> aqui alumnos es un modelo una clase generica solo se agrega la referencia
+}
+
+<h2>Alumno</h2>
+
+@*Mapa de Navegación*@
+<ol class="breadcrumb">
+    <li><a href="~/">Alumnos</a></li>
+    <li class="active">@(Model.Nombre + " " + Model.Apellido)</li>
+</ol>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Información personal</div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Nombre</dt>
+            <dd>@Model.Nombre</dd>
+            <dt>Apellido</dt>
+            <dd>@Model.Apellido</dd>
+            <dt>Sexo</dt>
+            <dd>@(Model.Sexo == 1 ? "Hombre" : "Mujer")</dd>
+            <dt>Fecha de Nacimiento</dt>
+            <dd>@Model.FechaNacimiento.ToShortDateString()</dd>
+        </dl>
+    </div>
+</div>
+
+@*Si hay cursos en la lista de la BD*@
+@if (Model.AlumnoCurso.Count != 0)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">Asignaturas tomadas</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Curso</th>
+                    <th style="width:60px;">Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model.AlumnoCurso)
+                {
+                    <tr>
+                        <td>@c.Curso.Nombre</td>
+                        <td class="text-right">@c.Nota</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p><strong> No hay cursos asignados.</strong></p>
+}
+
+
+
+
+
+
+
