@@ -33,12 +33,12 @@
                     <div class="form-group">
                         @Html.LabelFor(x => x.Nombre)
                         @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control", style = "max-width:100% !important;" })
-                        @Html.ValidationMessageFor(x => x.Nombre, null, new { @class = "label label-danger" })
+                        @Html.ValidationMessageFor(x => x.Nombre, null, new { @class = "label label-danger" }) @*Como parametro se le pasa la clase de Bootstrap*@
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.Apellido)
                         @Html.TextBoxFor(x => x.Apellido, new { @class = "form-control", style = "max-width:100% !important;" })
-                        @Html.ValidationMessageFor(x => x.Apellido, null, new { @class = "label label-danger" })
+                        @Html.ValidationMessageFor(x => x.Apellido, null, new { @class = "label label-danger" }) @*Como parametro se le pasa la clase de Bootstrap*@
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(x => x.Sexo)
@@ -55,14 +55,16 @@
             </div>
 
             <div class="text-right">
-                @*<button data-ajax="true" data-confirm="¿Esta seguro de guardar este registro?" type="submit" class="btn btn-primary">Guardar</button>*@
-                <button type="button"
+                @*Evento boton por ASP MVC --> Posiblemente haya error en el submit al enviar por el formato de la fecha "1989/03/29" probar con ese formato*@
+                <button data-ajax="true" data-confirm="¿Esta seguro de guardar este registro?" type="submit" class="btn btn-primary">Guardar</button>
+                @*Evento botn por AJAX*@
+                @*<button type="button"
                         class="btn btn-success"
                         id="saveRoute"
                         data-confirm="Esta seguro de guardar el registro"
                         onclick="javascript: SaveAlumno()">
                     Guardar
-                </button>
+                </button>*@
             </div>
         }
     </div>

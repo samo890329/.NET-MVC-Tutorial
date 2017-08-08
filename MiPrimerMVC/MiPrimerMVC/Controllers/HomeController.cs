@@ -68,36 +68,41 @@ namespace MiPrimerMVC.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        //public ActionResult Guardar(Alumno model)
+        public ActionResult Guardar(Alumno model)
+        {
+            if (ModelState.IsValid) //--> IsValid es la validacion del Modelo serializado (Alumno model), y es el que actica los mensajes de validación
+            {
+                alumnoDAO.Upsert(model);
+                return Redirect("~/home");
+            }
+            else
+            {
+                return View("~/views/home/crud.cshtml", model);
+            }
+        }
+
+        /// <summary>
+        /// Mismo Metodo que el anterior pero regresando un JSON Serializado
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        //public JsonResult Guardar(Alumno model)
         //{
+        //    var rm = new ResponseModel();
+
         //    if (ModelState.IsValid)
         //    {
-        //        alumnoDAO.Upsert(model);
-        //        return Redirect("~/home");
+        //        rm = alumnoDAO.Upsert(model);
+
+        //        if (rm.response)
+        //        {
+        //            rm.message = "Registro exitoso";
+        //            rm.href = Url.Content("~/home");
+        //        }
         //    }
-        //    else
-        //    {
-        //        return View("~/views/home/crud.cshtml", model);
-        //    }         
+
+        //    return Json(rm);
         //}
-
-        public JsonResult Guardar(Alumno model)
-        {
-            var rm = new ResponseModel();
-
-            if (ModelState.IsValid)
-            {
-                rm = alumnoDAO.Upsert(model);
-
-                if (rm.response)
-                {
-                    rm.message = "Registro exitoso";
-                    rm.href = Url.Content("~/home");
-                }  
-            }
-
-            return Json(rm);
-        }
 
         public ActionResult Eliminar(int id = 0)
         {

@@ -18,3 +18,13 @@ C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\bin\Debug\EntityFramework.SqlServer
 C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\obj\Debug\Model.dll
 C:\Users\idem2_000\Desktop\MiPrimerMVC\Model\obj\Debug\Model.pdb
+C:\Users\idem2_000\Source\Repos\.NET-MVC-Tutorial\MiPrimerMVC\Model\bin\Debug\Model.dll.config
+C:\Users\idem2_000\Source\Repos\.NET-MVC-Tutorial\MiPrimerMVC\Model\bin\Debug\Model.dll
+C:\Users\idem2_000\Source\Repos\.NET-MVC-Tutorial\MiPrimerMVC\Model\bin\Debug\Model.pdb
+C:\Users\idem2_000\Source\Repos\.NET-MVC-Tutorial\MiPrimerMVC\Model\bin\Debug\EntityFramework.dll
+C:\Users\idem2_000\Source\Repos\.NET-MVC-Tutorial\MiPrimerMVC\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\idem2_000\Source\Repos\.NET-MVC-Tutorial\MiPrimerMVC\Model\bin\Debug\EntityFramework.xml
+C:\Users\idem2_000\Source\Repos\.NET-MVC-Tutorial\MiPrimerMVC\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\idem2_000\Source\Repos\.NET-MVC-Tutorial\MiPrimerMVC\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\idem2_000\Source\Repos\.NET-MVC-Tutorial\MiPrimerMVC\Model\obj\Debug\Model.dll
+C:\Users\idem2_000\Source\Repos\.NET-MVC-Tutorial\MiPrimerMVC\Model\obj\Debug\Model.pdb
