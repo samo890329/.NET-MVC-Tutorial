@@ -57,6 +57,8 @@
             <div class="text-right">
                 @*Evento boton por ASP MVC --> Posiblemente haya error en el submit al enviar por el formato de la fecha "1989/03/29" probar con ese formato*@
                 @*<button data-ajax="true" data-confirm="¿Esta seguro de guardar este registro?" type="submit" class="btn btn-primary">Guardar</button>*@
+                @*data-ajax="true" --> Trabaja con JQuery Form y con eso sabra que el foremulario trabajara con AJAX*@
+
                 @*Evento botn por AJAX*@
                 <button type="button"
                         class="btn btn-success"
@@ -80,8 +82,9 @@
 
 <script>
     /*
+    //AJAX Request se envia directamente el formulario y se invoca al Metodo del controller que retorna el "JSONResult"
     $(document).ready(function () {
-        $("#frm-alumno").submit(function () {
+        $("#frm-alumno").submit(function () { //Funcion Submit directamente al formulario
             var form = $(this);
 
             $.ajax({

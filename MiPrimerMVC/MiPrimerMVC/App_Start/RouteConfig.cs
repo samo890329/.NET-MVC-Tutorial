@@ -14,7 +14,7 @@ namespace MiPrimerMVC
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             //Attribute Routing in ASP.NET MVC 5
-            //enabling attribute routing
+            //Enabling attribute routing
             routes.MapMvcAttributeRoutes();
 
             //Convention-based routing

@@ -39,6 +39,7 @@ namespace MiPrimerMVC.Controllers
             return PartialView(alumnoCurso);
         }
 
+        //Ejemplo Routing By "Attribute Routing in ASP.NET MVC 5"
         [HttpGet]
         [Route("CursosTest/{id}")]
         public PartialViewResult CursosTest(int? id)
@@ -50,7 +51,7 @@ namespace MiPrimerMVC.Controllers
         }
 
 
-        //Cuando se envian parametros desde un Formulario desde la vista
+        //Cuando se envian parametros desde un Formulario desde la vista metodo normal ASP que recibe el submit
         //public ActionResult Guardar(Alumno alumno, int algo, int[] array) // "Algo" o "Array" puede ser de tipo "string" en este caso como se sabe del valor sera "int"
         //{
         //    //Parametros: /"Controlador"/"Accion"
